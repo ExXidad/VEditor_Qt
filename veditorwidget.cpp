@@ -7,14 +7,15 @@ VEditorWidget::VEditorWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    workplace = new Workplace(this);
+
     view = ui->graphicsView;
-    scene.setSceneRect(QRect(0,0,100,100));
-    view->setScene(&scene);
+    view->setScene(workplace);
 
+    workplace->addLine(-100,0,100,0);
+    workplace->addLine(0,-100,0,100);
 
-
-    scene.addLine(-100,0,100,0);
-    scene.addLine(0,-100,0,100);
+    workplace->setSceneRect(QRectF(-500,-500,1000,1000));
 
 //    QGraphicsLineItem line(0,0,100,100);
 
@@ -24,6 +25,7 @@ VEditorWidget::VEditorWidget(QWidget *parent) :
 VEditorWidget::~VEditorWidget()
 {
     delete ui;
+    delete workplace;
 }
 
 void VEditorWidget::changeCurrentAction(const ActionTypes &newAction, QPushButton *newButton)
@@ -57,5 +59,10 @@ void VEditorWidget::on_rectTypePushButton_clicked(bool checked)
 
 void VEditorWidget::updateWorkplaceCurrentAction()
 {
-    ui->graphicsView->setCurrentAction(currentAction());
+    workplace->setCurrentAction(currentAction());
+}
+
+void VEditorWidget::on_pushButton_4_clicked()
+{
+    workplace->addText("Я люблю Ульяшу сильнее всех на свете");
 }

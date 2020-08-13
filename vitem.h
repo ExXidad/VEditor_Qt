@@ -2,13 +2,12 @@
 #define VITEM_H
 
 #include <QMouseEvent>
+#include <QGraphicsItem>
+#include <QGraphicsSceneMouseEvent>
 
-class VItem
+class VItem //: public QGraphicsItem
 {
-public:
 
-protected:
-    virtual void mousePressEvent(QMouseEvent *event) = 0;
 };
 
 #endif // VITEM_H

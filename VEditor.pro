@@ -33,8 +33,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
-    veditorwidget.ui \
-    workplace.ui
+    veditorwidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

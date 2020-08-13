@@ -1,18 +1,12 @@
 #include "vline.h"
 
-VLine::VLine()
+VLine::VLine(const QPointF &p1, const QPointF &p2) : VItem(),
+    QGraphicsLineItem(QLineF(p1,p2))
 {
 
 }
 
-VLine::~VLine()
+void VLine::setLine(const QPointF &p1, const QPointF &p2)
 {
-
-}
-
-void VLine::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton){
-
-    }
+    QGraphicsLineItem::setLine(QLineF(p1, p2));
 }

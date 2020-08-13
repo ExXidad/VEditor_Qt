@@ -2,17 +2,18 @@
 #define VLINE_H
 
 #include <QLine>
+#include <QGraphicsLineItem>
 
 #include "vitem.h"
 
-class VLine : public VItem, public QLine
+class VLine : public VItem, public QGraphicsLineItem
 {
 public:
-    VLine();
-    ~VLine();
+    VLine(const QPointF &p1, const QPointF &p2);
+    ~VLine() override {}
 
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
+    void setLine(const QPointF &p1, const QPointF &p2);
+
 };
 
 #endif // VLINE_H

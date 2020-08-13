@@ -7,12 +7,16 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include <QPushButton>
+#include <QGraphicsView>
 
 #include "vitem.h"
 #include <vector>
 #include "Enums.h"
+#include "workplace.h"
 
 using namespace Enums;
+
+class Workplace;
 
 namespace Ui {
 class VEditorWidget;
@@ -29,7 +33,7 @@ public:
 private:
     Ui::VEditorWidget *ui;
 
-    QGraphicsScene scene;
+    Workplace *workplace;
 
     QGraphicsView *view;
 
@@ -47,6 +51,8 @@ private slots:
     void on_lineTypePushButton_clicked(bool checked);
 
     void on_rectTypePushButton_clicked(bool checked);
+
+    void on_pushButton_4_clicked();
 
 private:
     ActionTypes currentActionType = SelectionType;
